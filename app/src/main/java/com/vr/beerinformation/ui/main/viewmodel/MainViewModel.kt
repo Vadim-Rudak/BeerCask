@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import com.vr.beerinformation.data.model.Beer
 import com.vr.beerinformation.data.repository.MainRepositoryImpl
 import com.vr.beerinformation.domain.UseCase.GetAllBeerBD
+import com.vr.beerinformation.domain.UseCase.GetAllBeerFromAPI
 import com.vr.beerinformation.domain.UseCase.InternetConnection
 import com.vr.beerinformation.domain.UseCase.SaveBeerInBD
 import com.vr.beerinformation.domain.repository.BeerRepository
@@ -16,7 +17,7 @@ import com.vr.beerinformation.ui.main.adapter.BtnBeerAdapter
 import com.vr.beerinformation.ui.main.view.FragmentAllBeer
 import kotlinx.coroutines.*
 
-class MainViewModel(private val beerRepository: BeerRepository,
+class MainViewModel(private val getAllBeerFromAPI: GetAllBeerFromAPI,
                     private val internetConnection: InternetConnection,
                     private val getAllBeerBD: GetAllBeerBD,
                     private val saveBeerInBD: SaveBeerInBD) : ViewModel() {
@@ -31,9 +32,8 @@ class MainViewModel(private val beerRepository: BeerRepository,
     fun getAllBeer(){
         job = CoroutineScope(Dispatchers.IO).launch {
             loading.postValue(true)
-            val response = beerRepository.GetAllBeer()
-            Log.d("HHH", response.body().toString())
-            print(response.body().toString())
+            val response = getAllBeerFromAPI.execute()
+
             withContext(Dispatchers.Main){
                 if (response.isSuccessful){
                     beerList.postValue(response.body())

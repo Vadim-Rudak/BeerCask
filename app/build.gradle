@@ -40,6 +40,14 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:4.7.2"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 
+    //Koin
+
+    // Koin Core features
+    implementation "io.insert-koin:koin-core:3.2.2"
+    implementation "io.insert-koin:koin-android:3.2.2"
+    // Koin Test features
+    testImplementation "io.insert-koin:koin-test:3.2.2"
+
     //Coroutine
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
