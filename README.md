@@ -1,4 +1,4 @@
-# Project android app Beer information
+# Project android app BeerCask
 
  <h2 align="center">List beer</h2>
 
