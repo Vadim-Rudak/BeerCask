@@ -23,11 +23,7 @@ class FragmentAllBeer () : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        toolbar?.title = "InfoBeer"
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        toolbar?.title = resources.getString(R.string.name_in_splash)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -38,9 +34,9 @@ class FragmentAllBeer () : Fragment() {
 
         view?.adapter = adapter
         adapter.setListener(object : BtnBeerAdapter.Listener {
-            override fun Clicked(pos_beer: Int) {
-                val fragmentInfoOneBeer = FragmentInfoOneBeer(adapter.ChekInternet,adapter.beerList[pos_beer])
-                toolbar?.title = adapter.beerList[pos_beer].name
+            override fun clicked(indexBeer: Int) {
+                val fragmentInfoOneBeer = FragmentInfoOneBeer(adapter.ChekInternet,adapter.beerList[indexBeer])
+                toolbar?.title = adapter.beerList[indexBeer].name
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.fr_place, fragmentInfoOneBeer)
                     ?.addToBackStack(null)

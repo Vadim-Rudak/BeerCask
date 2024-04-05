@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.toolbar_first_window)
         setSupportActionBar(toolbar)
 
-        viewModel.ChekInternetConnection()
+        viewModel.checkInternetConnection()
 
         viewModel.beerList.observe(this) {
             viewModel.adapter.setBeer(it)

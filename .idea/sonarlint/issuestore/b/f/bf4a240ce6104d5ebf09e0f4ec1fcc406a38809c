@@ -1,0 +1,7 @@
+
+=kotlin:S6615B" Remove this useless initializer.(¼„â·üÿÿÿÿ
+ekotlin:S117`"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ö‰ƒ¿
+okotlin:S117L"SRename this local variable to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(‘¼ğ‘ıÿÿÿÿ
+okotlin:S117N"SRename this local variable to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(Í®©§øÿÿÿÿ
+Jkotlin:S1481*"-Remove this unused "newRowId" local variable.(ºØºùÿÿÿÿ
+dkotlin:S11927"GDefine a constant instead of duplicating this literal " TEXT," 3 times.(ÆÏ‹ıÿÿÿÿ

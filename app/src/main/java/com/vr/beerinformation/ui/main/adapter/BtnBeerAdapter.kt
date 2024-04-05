@@ -22,7 +22,7 @@ class BtnBeerAdapter : RecyclerView.Adapter<BtnBeerAdapter.ViewHolder>() {
     }
 
     interface Listener {
-        fun Clicked(pos_beer: Int)
+        fun clicked(indexBeer: Int)
     }
 
     override fun getItemCount(): Int = beerList.size
@@ -40,21 +40,19 @@ class BtnBeerAdapter : RecyclerView.Adapter<BtnBeerAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cardView = holder.cardView
-        val name_b = cardView.findViewById<View>(R.id.text_name_beer) as TextView
-        name_b.text = beerList[position].name
-        val id_b = cardView.findViewById<View>(R.id.text_id_beer) as TextView
-        id_b.text = position.toString()
+        val nameBeer = cardView.findViewById<TextView>(R.id.text_name_beer)
+        nameBeer.text = beerList[position].name
+        val idBeer = cardView.findViewById<View>(R.id.text_id_beer) as TextView
+        idBeer.text = position.toString()
         val image = cardView.findViewById<View>(R.id.image_beer) as ImageView
         if (ChekInternet!!){
-            Picasso.with(cardView.context)
-                .load(beerList[position].image_url)
-                .into(image)
+            Picasso.get().load(beerList[position].image_url).into(image)
         }else{
             image.setImageResource(R.drawable.image_no_internet)
         }
         cardView.setOnClickListener {
             if (listener != null) {
-                listener!!.Clicked(id_b.text.toString().toInt())
+                listener!!.clicked(idBeer.text.toString().toInt())
             }
         }
     }

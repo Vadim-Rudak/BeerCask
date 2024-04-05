@@ -1,21 +1,18 @@
 package com.vr.beerinformation.ui.main.viewmodel
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.vr.beerinformation.data.model.Beer
-import com.vr.beerinformation.data.repository.MainRepositoryImpl
 import com.vr.beerinformation.domain.UseCase.GetAllBeerBD
 import com.vr.beerinformation.domain.UseCase.GetAllBeerFromAPI
 import com.vr.beerinformation.domain.UseCase.InternetConnection
 import com.vr.beerinformation.domain.UseCase.SaveBeerInBD
-import com.vr.beerinformation.domain.repository.BeerRepository
 import com.vr.beerinformation.ui.main.adapter.BtnBeerAdapter
-import com.vr.beerinformation.ui.main.view.FragmentAllBeer
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainViewModel(private val getAllBeerFromAPI: GetAllBeerFromAPI,
                     private val internetConnection: InternetConnection,
@@ -50,7 +47,7 @@ class MainViewModel(private val getAllBeerFromAPI: GetAllBeerFromAPI,
         beerList.postValue(getAllBeerBD.execute())
     }
 
-    fun ChekInternetConnection(){
+    fun checkInternetConnection(){
         internet.value = internetConnection.UseInternet()
     }
 
