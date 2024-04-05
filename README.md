@@ -1,5 +1,11 @@
-# Project android app BeerCask
+<p align="center">
+  <img src="https://github.com/Vadim-Rudak/ImagesInReadMe/blob/main/Beer%20App/title.gif" width="100%" title="list beer">
+</p>
 
+# About
+Android application for viewing beer
+
+# Documentation
  <h2 align="center">List beer</h2>
 
 <p align="center">
