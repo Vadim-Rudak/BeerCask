@@ -11,6 +11,7 @@ import com.vr.beerinformation.ui.main.adapter.BtnBeerAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collectIndexed
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -29,15 +30,12 @@ class MainViewModel(private val getAllBeerFromAPI: GetAllBeerFromAPI,
     fun getAllBeer(){
         job = CoroutineScope(Dispatchers.IO).launch {
             loading.postValue(true)
-            val response = getAllBeerFromAPI.execute()
 
-            withContext(Dispatchers.Main){
-                if (response.isSuccessful){
-                    beerList.postValue(response.body())
-                    saveBeerInBD.execute(response.body()!!)
+            getAllBeerFromAPI.execute().collectIndexed { _, value ->
+                beerList.postValue(value)
+                saveBeerInBD.execute(value)
+                withContext(Dispatchers.Default){
                     loading.value = false
-                }else{
-                    onError("Error: ${response.message()}")
                 }
             }
         }
