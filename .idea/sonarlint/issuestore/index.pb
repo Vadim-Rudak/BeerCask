@@ -21,8 +21,6 @@ x
 Happ/src/main/java/com/vr/beerinformation/ui/main/view/FragmentAllBeer.kt,5/e/5e2f4932748c8e876bb8e6e25f8d11b58261cd8e
 u
 Eapp/src/main/java/com/vr/beerinformation/ui/main/view/MainActivity.kt,4/2/42859be6c4a8d58d8dd1238bb84f78388e5788b6
-s
-Capp/src/main/java/com/vr/beerinformation/data/api/NetworkService.kt,4/5/4583aa97698c29ff96f263b28ca6baee8ce2e588
 w
 G.idea/sonarlint/issuestore/f/0/f07866736216be0ee2aba49e392191aeae700a35,b/f/bfb9453d49af9bc40f5f7a5f034be3c7ef8fa6bf
 Å
@@ -79,8 +77,6 @@ H
 app/google-services.json,f/d/fd8d34b142d02ec743a8efefefd2c097961666e9
 |
 Lapp/src/main/java/com/vr/beerinformation/domain/repository/BeerRepository.kt,a/5/a5958e7465f94a894350c401d8a1efde0401fbe3
-~
-Napp/src/main/java/com/vr/beerinformation/data/repository/MainRepositoryImpl.kt,1/3/136d8b201c65a423ee3bafbd0cd1ba08d40f1864
 Ç
 Rapp/src/main/java/com/vr/beerinformation/data/repository/FirebaseRepositoryImpl.kt,0/3/03be5ac1c2e38f74a165a588f529fdb0d47351b7
 z

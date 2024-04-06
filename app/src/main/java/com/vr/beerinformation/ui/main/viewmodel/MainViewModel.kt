@@ -34,7 +34,7 @@ class MainViewModel(private val getAllBeerFromAPI: GetAllBeerFromAPI,
             getAllBeerFromAPI.execute().collectIndexed { _, value ->
                 beerList.postValue(value)
                 saveBeerInBD.execute(value)
-                withContext(Dispatchers.Default){
+                withContext(Dispatchers.Main){
                     loading.value = false
                 }
             }
