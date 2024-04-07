@@ -62,8 +62,6 @@ G.idea/sonarlint/issuestore/2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4,5/1/51
 
 Q.idea/sonarlint/securityhotspotstore/2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4,a/8/a8a52112049d840217cfa586a3a399d9502f9b94
 
-Q.idea/sonarlint/securityhotspotstore/4/5/4583aa97698c29ff96f263b28ca6baee8ce2e588,3/9/3986c8dc6fb5e2ffc3e9dfdf2ac021a3b26a17ba
-
 Q.idea/sonarlint/securityhotspotstore/d/f/dfcc9fac5a6c3a63f83d178a52ce73453e956333,5/d/5d239abf183693ae770fe7ff6974dd43629a3695
 k
 ;app/src/main/java/com/vr/beerinformation/data/model/Beer.kt,f/f/ff1ee29bab8faee4762f2cc7c20f83be9d07dab1
@@ -127,8 +125,6 @@ Q.idea/sonarlint/securityhotspotstore/f/b/fbf65550f11e175508a6f0d4128be9338511a7
 Q.idea/sonarlint/securityhotspotstore/f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e,2/a/2a357145b04aeee0545d8bc616c6d89a975ff771
 
 Q.idea/sonarlint/securityhotspotstore/f/1/f1573578cf81a7cf6908e43466c27e0fddd6423a,b/6/b67973b51da672ca0e4d69b826504dc49a816f69
-
-Q.idea/sonarlint/securityhotspotstore/1/3/136d8b201c65a423ee3bafbd0cd1ba08d40f1864,6/6/66b975dfd03c53001835053735186adf9f35bb04
 w
 G.idea/sonarlint/issuestore/3/7/372651d3179ebdddd025bb074de3a992a6261b9e,f/2/f25041dda4af7852749eb415fdd9d1146de4abb9
 w
@@ -233,3 +229,5 @@ Q.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61
 Q.idea/sonarlint/securityhotspotstore/f/d/fd8d34b142d02ec743a8efefefd2c097961666e9,3/7/3744a0c0781d3a030528f5ae4b5b555708b5b3d2
 >
 app/.gitignore,5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f
+z
+Japp/src/main/java/com/vr/beerinformation/ui/main/adapter/ItemDecoration.kt,e/d/ed149735b831dd9c69639ec425ecddc1d1885ee1

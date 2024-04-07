@@ -5,6 +5,6 @@
 
     <string name="name_in_splash">Beer Cask</string>
 
-    <string name="date">Дата начала производства:</string>
+    <string name="date">Начало производства:</string>
     <string name="AllInfo">Полная информация:</string>
 </resources>

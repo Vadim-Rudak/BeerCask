@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vr.beerinformation.ui.main.adapter.BtnBeerAdapter
 import com.vr.beerinformation.R
+import com.vr.beerinformation.ui.main.adapter.ItemDecoration
 
 class FragmentAllBeer () : Fragment() {
     var view: RecyclerView? = null
@@ -32,6 +33,7 @@ class FragmentAllBeer () : Fragment() {
         val layoutManager = LinearLayoutManager(activity as MainActivity)
         view?.layoutManager = layoutManager
 
+        view?.addItemDecoration(ItemDecoration(requireContext()))
         view?.adapter = adapter
         adapter.setListener(object : BtnBeerAdapter.Listener {
             override fun clicked(indexBeer: Int) {
