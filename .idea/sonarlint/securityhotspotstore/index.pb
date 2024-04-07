@@ -227,3 +227,5 @@ Q.idea/sonarlint/securityhotspotstore/f/d/fd8d34b142d02ec743a8efefefd2c097961666
 app/.gitignore,5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f
 z
 Japp/src/main/java/com/vr/beerinformation/ui/main/adapter/ItemDecoration.kt,e/d/ed149735b831dd9c69639ec425ecddc1d1885ee1
+7
+LICENSE,0/3/0398ccd0f49298b10a3d76a47800d2ebecd49859
