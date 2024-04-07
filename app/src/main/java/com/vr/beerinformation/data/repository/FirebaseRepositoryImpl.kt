@@ -8,14 +8,13 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 
-class FirebaseRepositoryImpl():BeerRepository {
+class FirebaseRepositoryImpl:BeerRepository {
 
     override fun getAllBeer(): Flow<List<Beer>> = flow{
         val collection = Firebase.firestore.collection("ListBeer")
         try {
             val querySnapshot = collection.get().await()
-            val beers = querySnapshot.toObjects(Beer::class.java)
-            emit(beers)
+            emit(querySnapshot.toObjects(Beer::class.java))
         } catch (e: Exception) {
             // Обработка ошибки
             throw e

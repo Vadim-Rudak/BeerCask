@@ -14,10 +14,12 @@
         android:theme="@style/Theme.BeerInformation">
         <activity
             android:name=".ui.main.view.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="false">
         </activity>
         <activity
             android:name=".ui.main.view.Splash"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:theme="@style/Theme.BeerInformation.Splash">
             <intent-filter>

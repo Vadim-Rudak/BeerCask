@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">BeerCask</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <string name="name_in_splash">Beer Cask</string>
 
     <string name="date">Начало производства:</string>

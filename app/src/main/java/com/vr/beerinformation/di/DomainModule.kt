@@ -1,9 +1,6 @@
 package com.vr.beerinformation.di
 
-import com.vr.beerinformation.domain.UseCase.GetAllBeerBD
-import com.vr.beerinformation.domain.UseCase.GetAllBeerFromAPI
-import com.vr.beerinformation.domain.UseCase.InternetConnection
-import com.vr.beerinformation.domain.UseCase.SaveBeerInBD
+import com.vr.beerinformation.domain.UseCase.*
 import org.koin.dsl.module
 
 val domainModule = module {

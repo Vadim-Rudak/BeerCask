@@ -12,6 +12,23 @@ import com.vr.beerinformation.data.model.DBContract
 import com.vr.beerinformation.domain.repository.BDRepository
 
 class BDHelperImpl (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION),BDRepository {
+
+    companion object {
+        // If you change the database schema, you must increment the database version.
+        const val DATABASE_VERSION = 1
+        const val DATABASE_NAME = "BeerReader.db"
+
+        private val SQL_CREATE_ENTRIES =
+            "CREATE TABLE " + DBContract.BeerEntry.TABLE_NAME + " (" +
+                    DBContract.BeerEntry.COLUMN_ID + " TEXT PRIMARY KEY," +
+                    DBContract.BeerEntry.COLUMN_NAME + " TEXT," +
+                    DBContract.BeerEntry.COLUMN_FIRST_BREWED + " TEXT," +
+                    DBContract.BeerEntry.COLUMN_DESCRIPTION + " TEXT," +
+                    DBContract.BeerEntry.COLUMN_IMAGE_URL + " TEXT)"
+
+        private val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + DBContract.BeerEntry.TABLE_NAME
+    }
+
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(SQL_CREATE_ENTRIES)
     }
@@ -32,32 +49,18 @@ class BDHelperImpl (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
 
         // Create a new map of values, where column names are the keys
         val values = ContentValues()
-        values.put(DBContract.BeerEntry.COLUMN_ID, beer.id)
-        values.put(DBContract.BeerEntry.COLUMN_NAME, beer.name)
-        values.put(DBContract.BeerEntry.COLUMN_FIRST_BREWED, beer.first_brewed)
-        values.put(DBContract.BeerEntry.COLUMN_DESCRIPTION, beer.description)
-        values.put(DBContract.BeerEntry.COLUMN_IMAGE_URL, beer.image_url)
+        values.apply {
+            put(DBContract.BeerEntry.COLUMN_ID, beer.id)
+            put(DBContract.BeerEntry.COLUMN_NAME, beer.name)
+            put(DBContract.BeerEntry.COLUMN_FIRST_BREWED, beer.first_brewed)
+            put(DBContract.BeerEntry.COLUMN_DESCRIPTION, beer.description)
+            put(DBContract.BeerEntry.COLUMN_IMAGE_URL, beer.image_url)
+        }
 
         // Insert the new row, returning the primary key value of the new row
-        val newRowId = db.insert(DBContract.BeerEntry.TABLE_NAME, null, values)
+        db.insert(DBContract.BeerEntry.TABLE_NAME, null, values)
 
         return true
-    }
-
-    companion object {
-        // If you change the database schema, you must increment the database version.
-        val DATABASE_VERSION = 1
-        val DATABASE_NAME = "BeerReader.db"
-
-        private val SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + DBContract.BeerEntry.TABLE_NAME + " (" +
-                    DBContract.BeerEntry.COLUMN_ID + " TEXT PRIMARY KEY," +
-                    DBContract.BeerEntry.COLUMN_NAME + " TEXT," +
-                    DBContract.BeerEntry.COLUMN_FIRST_BREWED + " TEXT," +
-                    DBContract.BeerEntry.COLUMN_DESCRIPTION + " TEXT," +
-                    DBContract.BeerEntry.COLUMN_IMAGE_URL + " TEXT)"
-
-        private val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + DBContract.BeerEntry.TABLE_NAME
     }
 
     override fun getAllBeer(): ArrayList<Beer> {
@@ -73,30 +76,30 @@ class BDHelperImpl (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
 
         var id : Int
         var name : String
-        var first_brewed : String
+        var firstBrewed : String
         var description : String
-        var image_url : String
+        var imageUrl : String
 
 
         if (cursor!!.moveToFirst()) {
             while (cursor.isAfterLast == false) {
                 id = cursor.getInt(0)
                 name = cursor.getString(1)
-                first_brewed = cursor.getString(2)
+                firstBrewed = cursor.getString(2)
                 description = cursor.getString(3)
-                image_url = cursor.getString(4)
+                imageUrl = cursor.getString(4)
 
-                beer.add(Beer(id, name, first_brewed,description,image_url))
+                beer.add(Beer(id, name, firstBrewed,description,imageUrl))
                 cursor.moveToNext()
             }
         }
         return beer
     }
 
-    override fun saveBeerInDB(Beer: List<Beer>) {
+    override fun saveBeerInDB(listBeer: List<Beer>) {
         val db = writableDatabase
         onUpgrade(db,1,1)
-        for (item in Beer){
+        for (item in listBeer){
             insertBeer(item)
         }
     }

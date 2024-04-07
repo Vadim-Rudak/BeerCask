@@ -14,28 +14,27 @@ import com.vr.beerinformation.data.model.Beer
 class FragmentInfoOneBeer() : Fragment() {
 
     var beer=Beer()
-    private var ChekInternet : Boolean = true
+    private var checkInternet : Boolean = true
 
     constructor(internet:Boolean?, beer: Beer) : this() {
         this.beer = beer
-        ChekInternet = internet!!
+        checkInternet = internet!!
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_info_one_beer, container, false)
         val image = view.findViewById<ImageView>(R.id.imageFragmentBeer)
-        if (ChekInternet){
+        val dateText = view.findViewById<TextView>(R.id.date_text)
+        val textInfo = view.findViewById<TextView>(R.id.all_info_text)
+
+        if (checkInternet){
             Picasso.get()
                 .load(beer.image_url)
                 .into(image)
         }else{
             image.setImageResource(R.drawable.image_no_internet)
         }
-
-        val dateText = view.findViewById<TextView>(R.id.date_text)
         dateText.text = beer.first_brewed
-        val textInfo = view.findViewById<TextView>(R.id.all_info_text)
         textInfo.text = beer.description
         return view
     }

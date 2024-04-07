@@ -1,7 +1,7 @@
 package com.vr.beerinformation.ui.main.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -13,19 +13,20 @@ import com.vr.beerinformation.data.model.Beer
 
 class BtnBeerAdapter : RecyclerView.Adapter<BtnBeerAdapter.ViewHolder>() {
     private var listener: Listener? = null
-    var beerList = mutableListOf<Beer>()
-    var ChekInternet : Boolean?= true
+    private var beerList:List<Beer> = listOf()
+    var chekInternet : Boolean?= true
 
-    fun setBeer(movies: List<Beer>) {
-        this.beerList = movies.toMutableList()
+    @SuppressLint("NotifyDataSetChanged")
+    fun setBeer(listBeer: List<Beer>) {
+        this.beerList = listBeer
         notifyDataSetChanged()
     }
 
     interface Listener {
-        fun clicked(indexBeer: Int)
+        fun clicked(beer: Beer)
     }
 
-    override fun getItemCount(): Int = beerList.size
+    override fun getItemCount() = beerList.size
 
 
     fun setListener(listener: Listener?) {
@@ -40,19 +41,20 @@ class BtnBeerAdapter : RecyclerView.Adapter<BtnBeerAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cardView = holder.cardView
+        val idBeer = cardView.findViewById<TextView>(R.id.text_id_beer)
         val nameBeer = cardView.findViewById<TextView>(R.id.text_name_beer)
-        nameBeer.text = beerList[position].name
-        val idBeer = cardView.findViewById<View>(R.id.text_id_beer) as TextView
+        val image = cardView.findViewById<ImageView>(R.id.image_beer)
+
         idBeer.text = position.toString()
-        val image = cardView.findViewById<View>(R.id.image_beer) as ImageView
-        if (ChekInternet!!){
+        nameBeer.text = beerList[position].name
+        if (chekInternet!!){
             Picasso.get().load(beerList[position].image_url).into(image)
         }else{
             image.setImageResource(R.drawable.image_no_internet)
         }
         cardView.setOnClickListener {
             if (listener != null) {
-                listener!!.clicked(idBeer.text.toString().toInt())
+                listener!!.clicked(beerList[position])
             }
         }
     }

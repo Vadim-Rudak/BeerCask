@@ -1,7 +1,3 @@
 
-ckotlin:S6615B" Remove this useless initializer.(¼„â·üÿÿÿÿJ$c120ef5c-5346-4af4-b650-871462271162
-‹kotlin:S117`"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ö‰ƒ¿J$b43e3ad2-9142-499f-bb63-88b5ce72e5f8
-•kotlin:S117L"SRename this local variable to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(‘¼ğ‘ıÿÿÿÿJ$34f47444-42e0-4279-88d5-dca0c2f54697
-•kotlin:S117N"SRename this local variable to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(Í®©§øÿÿÿÿJ$0d6cc4d6-e524-4c5e-ba75-138aa2bd4953
-pkotlin:S1481*"-Remove this unused "newRowId" local variable.(ºØºùÿÿÿÿJ$771d232a-2ce6-42db-ac6f-885cb5637be5
-Škotlin:S11927"GDefine a constant instead of duplicating this literal " TEXT," 3 times.(ÆÏ‹ıÿÿÿÿJ$c481d5c3-82ce-4d8b-a7b2-d0a2b53d0ce6
+jkotlin:S6615E" Remove this useless initializer.(¼„â·üÿÿÿÿ8Äê¤Èë1J$a1fe3a90-82fb-41f7-89fc-3157ae546c98
+‘kotlin:S1192"GDefine a constant instead of duplicating this literal " TEXT," 3 times.(ÆÏ‹ıÿÿÿÿ8Èë‰Èë1J$f301a73c-04a5-4a68-a0fb-dc01e456de81
